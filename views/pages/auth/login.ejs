@@ -1,0 +1,59 @@
+<div class="container">
+  <div class="authentication-wrapper authentication-basic container-p-y">
+    <div class="authentication-inner py-4">
+      <!-- Login -->
+      <div class="card">
+        <div class="card-body">
+          <!-- Logo -->
+          <div class="app-brand justify-content-center mb-4 mt-2">
+            <a class="app-brand-link gap-2">
+              <img src="/images/vmi-logo.png" height="150" width="150" />
+            </a>
+          </div>
+          <!-- /Logo -->
+          <h4 class="mb-1 text-center">VMI MEDICAL CLINIC</h4>
+          <br />
+          <p class="mb-1">Sign-in to your account</p>
+          <form id="formAuthentication">
+            <div class="mb-3">
+              <label for="user_name" class="form-label">Username</label>
+              <input
+                type="text"
+                class="form-control"
+                id="user_name"
+                name="user_name"
+                placeholder="Enter your username"
+                autocomplete="off"
+                autofocus
+              />
+            </div>
+            <div class="mb-3 form-password-toggle">
+              <div class="d-flex justify-content-between">
+                <label class="form-label" for="password">Password</label>
+              </div>
+              <div class="input-group input-group-merge">
+                <input
+                  type="password"
+                  id="password"
+                  class="form-control"
+                  name="password"
+                  placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
+                  autocomplete="off"
+                  aria-describedby="password"
+                />
+                <span class="input-group-text cursor-pointer"
+                  ><i class="ti ti-eye-off"></i
+                ></span>
+              </div>
+            </div>
+            <div class="mb-3">
+              <button class="btn btn-primary d-grid w-100" id="signIn">
+                Sign in
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

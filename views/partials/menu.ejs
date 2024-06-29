@@ -1,0 +1,51 @@
+<aside
+  id="layout-menu"
+  class="layout-menu-horizontal menu-horizontal menu bg-menu-theme flex-grow-0"
+>
+  <div class="container-xxl d-flex h-100">
+    <ul class="menu-inner">
+      <?php
+            $menu = (array)$this->session->userdata('user_data')['menu'];
+      foreach ($menu as $key => $value) { if ($value['parent']) { ?>
+      <li
+        class="menu-item <?= ($value['menu_name'] == $page) ? 'active' : '' ?>"
+      >
+        <a href="javascript:void(0)" class="menu-link menu-toggle">
+          <i class="menu-icon tf-icons ti <?= $value['icon'] ?>"></i>
+          <div data-i18n="<?= ucfirst($value['menu_name']) ?>">
+            <?= ucfirst($value['menu_name']) ?>
+          </div>
+        </a>
+        <ul class="menu-sub">
+          <?php
+                            $arr = $value['sub_menu'];
+                            $arr = json_decode($arr, true);
+                            foreach ($arr as $key_s =>
+          $value_s) { ?>
+          <li class="menu-item">
+            <a href="<?php echo base_url($value_s['url']) ?>" class="menu-link">
+              <i class="menu-icon tf-icons ti <?= $value_s['icon'] ?>"></i>
+              <div data-i18n="<?= $value_s['name'] ?>">
+                <?= $value_s['name'] ?>
+              </div>
+            </a>
+          </li>
+          <?php } ?>
+        </ul>
+      </li>
+      <?php    } else { ?>
+      <li
+        class="menu-item <?= ($value['menu_name'] == $page) ? 'active' : '' ?>"
+      >
+        <a href="<?php echo base_url($value['url']) ?>" class="menu-link">
+          <i class="menu-icon tf-icons ti <?= $value['icon'] ?>"></i>
+          <div data-i18n="<?= ucfirst($value['menu_name']) ?>">
+            <?= ucfirst($value['menu_name']) ?>
+          </div>
+        </a>
+      </li>
+      <?php    }
+            } ?>
+    </ul>
+  </div>
+</aside>
